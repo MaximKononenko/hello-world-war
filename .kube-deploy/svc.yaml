@@ -1,0 +1,14 @@
+---
+  kind: Service
+  apiVersion: v1
+  metadata:
+    name: myapp
+    namespace: production
+  spec:
+    selector:
+      app: myapp
+    ports:
+      - protocol: TCP
+        port: 80
+        targetPort: 8080
+        name: ui

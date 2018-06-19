@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: myapp
+  namespace: production
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        component: app
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: docker.devopsit.com.ua/ms/hello-world-war/hello-world-war:image_tag
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: regsecret

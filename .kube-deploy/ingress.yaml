@@ -1,0 +1,15 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: myapp
+  namespace: production
+spec:
+  rules:
+  - host: fqdn.lab.int
+    http:
+      paths:
+      - backend:
+          serviceName: myapp
+          servicePort: 80
+        path: /
