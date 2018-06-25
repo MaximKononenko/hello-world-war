@@ -31,7 +31,7 @@ pipeline {
           steps{
             echo "Start deploy"
             //sh "docker stop"
-            sh "run.sh"
+            sh "wget https://raw.githubusercontent.com/MaximKononenko/hello-world-war/master/run.sh && chmod +x ./run.sh && ./run.sh"
           }
         }
     }
