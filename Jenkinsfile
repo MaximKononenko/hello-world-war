@@ -10,15 +10,13 @@ pipeline {
             }
         }
         stage('Tagging Stage') {
-            withCredentials([string(credentialsId: '9d41a3ce-2d5c-4c5e-9ec9-fff5c17de14e', variable: 'PW1')]) {
-                echo "My password is '${PW1}'!"
-            
             steps {
                 echo "Tagging artifacts"
-                sh 'docker login -u ${Username} -p ${Password} nexus.phyzeek.com'
-                // sh 'docker tag artifact:${BUILD_NUMBER} <REGISTRY>/jenkins-swarm:${BUILD_NUMBER}'
-                // sh 'docker tag artifact:${BUILD_NUMBER} <REGISTRY>/jenkins-swarm:latest'                
-            }
+                withCredentials([usernamePassword(credentialsId: '9d41a3ce-2d5c-4c5e-9ec9-fff5c17de14e', passwordVariable: 'PW1', usernameVariable: 'USER1')]) {
+                    sh 'docker login -u ${USER1} -p ${PW1} nexus.phyzeek.com'
+                    // sh 'docker tag artifact:${BUILD_NUMBER} <REGISTRY>/jenkins-swarm:${BUILD_NUMBER}'
+                    // sh 'docker tag artifact:${BUILD_NUMBER} <REGISTRY>/jenkins-swarm:latest'
+                }
             }
         }
         stage('Push Artifacts Stage') {
