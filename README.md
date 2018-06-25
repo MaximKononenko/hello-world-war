@@ -31,7 +31,7 @@ Login to Jenkins webinterface http://localhost
 Go to Manage Jenkins -> Manage Plugin -> Avaliable
 Find and install _**"Docker Swarm Plugin"**_.
 Go to _Configure System_ and Create new cloud choosing _Docker Swarm_.
-Provide _Docker swarm api url_ and test connection. Set new _Docker Agent template_ and set _Label agent_ as _swarm-agent_, _Image_ as _tehranian/dind-jenkins-slave_ and _Host Binds_ as _/var/run/docker.sock:/var/run/docker.sock_
+Provide _Docker swarm api url_ and test connection. Set new _Docker Agent template_ and set _Label agent_ as _swarm-agent_, _Image_ as _tehranian/dind-jenkins-slave_ and _Host Binds_ as _/var/run/docker.sock:/var/run/docker.sock_  
 Create new Pipeline job. Set pipeline definition as _"Pipeline script from CSM"_. Put your CSM endpoints and save the Pipeline job. 
 
 ### 2.3 Java installation steps
