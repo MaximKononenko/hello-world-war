@@ -32,8 +32,7 @@ pipeline {
           }
           steps{
             echo "Start deploy"
-            //sh "docker stop"
-            sh "./run.sh"
+            sh "chmod +x ./run.sh && ./run.sh"
           }
         }
     }
