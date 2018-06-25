@@ -12,7 +12,7 @@ pipeline {
         stage('Tagging Stage') {
             steps {
                 echo "Tagging artifacts"
-                sh 'docker login -u deployment -p DJe7hOJ7uvYQzj3p'
+                sh 'docker login -u deployment -p DJe7hOJ7uvYQzj3p nexus.phyzeek.com'
                 sh 'docker tag artifact:${BUILD_NUMBER} nexus.phyzeek.com/jenkins-swarm:${BUILD_NUMBER}'
                 sh 'docker tag artifact:${BUILD_NUMBER} nexus.phyzeek.com/jenkins-swarm:latest'                
             }
