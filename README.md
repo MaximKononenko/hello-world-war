@@ -21,7 +21,7 @@ From your ssh console type:
 
 ### 2.2 Jenkins installation steps
 From your ssh console type:
->mkdir /var/jenkins_home
+>mkdir -p /var/jenkins_home
 >chown -R 1000:1000 /var/jenkins_home
 >docker run -d -v /var/jenkins_home:/var/jenkins_home:z -p 80:8080 -p 50000:50000 --name jenkins jenkins/jenkins:lts
 
@@ -39,5 +39,22 @@ From your ssh console type:
 >sudo apt-get update
 >sudo apt-get install default-jre -y
 
+### 2.4 Init Docker Swarm
+From your ssh console type:
+>docker swarm init --advertise-addr <IP>
+
+
+
+
 
 This is the simplest possible Java webapp for testing servlet container deployments.  It should work on any container and requires no other dependencies or configuration.
+
+  104  docker swarm init --advertise-addr 192.168.50.24
+  105  docker container ls
+  106  docker container ls -a
+  107  docker node ls
+  108  docker network inspect
+  109  docker network inspect oxwxgobjk0k549roiysgqw5re
+  110  docker inspect oxwxgobjk0k549roiysgqw5re
+  111  nano /lib/systemd/system/docker.service
+  

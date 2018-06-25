@@ -12,16 +12,16 @@ pipeline {
         stage('Tagging Stage') {
             steps {
                 echo "Tagging artifacts"
-                sh 'docker login -u deployment -p DJe7hOJ7uvYQzj3p nexus.phyzeek.com'
-                sh 'docker tag artifact:${BUILD_NUMBER} nexus.phyzeek.com/jenkins-swarm:${BUILD_NUMBER}'
-                sh 'docker tag artifact:${BUILD_NUMBER} nexus.phyzeek.com/jenkins-swarm:latest'                
+                // sh 'docker login -u <USER> -p <PASS> <REGISTRY>'
+                // sh 'docker tag artifact:${BUILD_NUMBER} <REGISTRY>/jenkins-swarm:${BUILD_NUMBER}'
+                // sh 'docker tag artifact:${BUILD_NUMBER} <REGISTRY>/jenkins-swarm:latest'                
             }
         }
         stage('Push Artifacts Stage') {
             steps {
                 echo "Pushing artifacts to registry"
-                //sh 'docker push jenkins-swarm:${BUILD_NUMBER}'
-                sh 'docker push nexus.phyzeek.com/jenkins-swarm:latest'
+                // sh 'docker push <REGISTRY>/jenkins-swarm:${BUILD_NUMBER}'
+                // sh 'docker push <REGISTRY>/jenkins-swarm:latest'
             }
         }
         stage('deploy'){
