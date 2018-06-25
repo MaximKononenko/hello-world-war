@@ -30,7 +30,8 @@ pipeline {
           }
           steps{
             echo "Start deploy"
-            sh "docker run -it -p 8080:8080 --rm nexus.phyzeek.com/jenkins-swarm:latest"
+            //sh "docker stop"
+            sh "nohup docker run -it -p -d 8080:8080 --rm nexus.phyzeek.com/jenkins-swarm:latest &"
           }
         }
     }
