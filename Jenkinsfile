@@ -12,7 +12,9 @@ pipeline {
                 //     dir '.'
                 //     additionalBuildArgs  '-t artifact:latest'
                 // }
-                def customImage = docker.build("artifact:latest")
+                script {
+                    def customImage = docker.build("artifact:latest")
+                }
             }
         }
         stage('Tagging Stage') {
