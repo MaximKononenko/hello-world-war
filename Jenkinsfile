@@ -1,6 +1,6 @@
 pipeline {
     agent {
-                label 'swarm-agent'
+                label 'swarm'
             }
     stages {
         stage('Build Stage') {
