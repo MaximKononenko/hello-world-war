@@ -7,11 +7,12 @@ pipeline {
             steps {
                 echo "Run docker build Stage"
                 //sh 'docker build -t artifact:${BUILD_NUMBER} .'
-                dockerfile {
-                    filename 'Dockerfile'
-                    dir '.'
-                    additionalBuildArgs  '-t artifact:latest'
-                }
+                // dockerfile {
+                //     filename 'Dockerfile'
+                //     dir '.'
+                //     additionalBuildArgs  '-t artifact:latest'
+                // }
+                def customImage = docker.build("artifact:latest")
             }
         }
         stage('Tagging Stage') {
