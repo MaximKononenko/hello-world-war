@@ -6,7 +6,10 @@ pipeline {
         stage('Build Stage') {
             steps {
                 echo "Run docker build Stage"
-                sh 'docker build -t artifact:${BUILD_NUMBER} .'
+                //sh 'docker build -t artifact:${BUILD_NUMBER} .'
+                dockerfile {
+                    filename 'Dockerfile'
+                }
             }
         }
         stage('Tagging Stage') {
