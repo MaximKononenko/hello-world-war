@@ -10,7 +10,7 @@ pipeline {
                 dockerfile {
                     filename 'Dockerfile'
                     dir '.'
-                    additionalBuildArgs  '-t artifact:${BUILD_NUMBER}'
+                    additionalBuildArgs  '-t artifact:latest'
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: '9d41a3ce-2d5c-4c5e-9ec9-fff5c17de14e', passwordVariable: 'PW1', usernameVariable: 'USER1')]) {
                     sh 'docker login -u ${USER1} -p ${PW1} nexus.phyzeek.com'
                     sh 'docker tag artifact:${BUILD_NUMBER} nexus.phyzeek.com/jenkins-swarm:${BUILD_NUMBER}'
-                    sh 'docker tag artifact:${BUILD_NUMBER} nexus.phyzeek.com/jenkins-swarm:latest'
+                    sh 'docker tag artifact:latest nexus.phyzeek.com/jenkins-swarm:latest'
                 }
             }
         }
