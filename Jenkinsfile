@@ -9,6 +9,8 @@ pipeline {
                 //sh 'docker build -t artifact:${BUILD_NUMBER} .'
                 dockerfile {
                     filename 'Dockerfile'
+                    dir '.'
+                    additionalBuildArgs  '-t artifact:${BUILD_NUMBER}'
                 }
             }
         }
