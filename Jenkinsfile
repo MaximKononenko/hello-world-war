@@ -14,8 +14,10 @@ pipeline {
         stage('Tagging Stage') {
             steps {
                 echo "Tagging artifacts"
-                docker.withRegistry('https://nexus.phyzeek.com', '9d41a3ce-2d5c-4c5e-9ec9-fff5c17de14e') {
-                    customImage.push("${BUILD_NUMBER}")
+                script {
+                    docker.withRegistry('https://nexus.phyzeek.com', '9d41a3ce-2d5c-4c5e-9ec9-fff5c17de14e') {
+                        customImage.push("${BUILD_NUMBER}")
+                    }
                 }
                     // sh 'docker login -u ${USER1} -p ${PW1} nexus.phyzeek.com'
                     // sh 'docker tag artifact:latest nexus.phyzeek.com/jenkins-swarm:${BUILD_NUMBER}'
