@@ -6,8 +6,6 @@ WORKDIR /usr/src/hello-world-war
 COPY pom.xml .
 COPY src ./src/
 
-RUN ls -la .
-
 RUN cd /usr/src/hello-world-war && mvn clean install
  
 RUN ls -la /usr/src/hello-world-war
