@@ -63,7 +63,7 @@ Go to **Manage Jenkins -> Manage Plugin -> Avaliable**
 Find and install _**"Docker Swarm Plugin"**_.  
 Go to _**Configure System**_ and Create new cloud choosing _**Docker Swarm**_ at the bottom of the page.  
 Provide _**Docker swarm api url**_ and test connection.  
-Set new _**Docker Agent template**_ and set _**Label agent**_ as _**"swarm-agent"**_, _**Image**_ as _**"tehranian/dind-jenkins-slave"**_ and _**Host Binds**_ as _**"/var/run/docker.sock:/var/run/docker.sock"**_  
+Set new _**Docker Agent template**_ and set _**Label agent**_ as _**<"NAMING_CONVENTION">**_, _**Image**_ as _**"tehranian/dind-jenkins-slave"**_ and _**Host Binds**_ as _**"/var/run/docker.sock:/var/run/docker.sock"**_  
 ___
 #### 2.4.3 Setup Credentials
 You need to setup credentials for ssh git connection and Registry. From the Jenkins main page go to _**Credentials -> (global) -> Add credentials**_  
