@@ -10,7 +10,7 @@ pipeline {
                     def customImage = docker.build("catalinalab/jenkins-swarm:${BUILD_NUMBER}")
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-catalinalab') {
                         echo "Pushing artifacts to registry"
-                        customImage.push("${BUILD_NUMBER}")
+                        customImage.push()
                         customImage.push("latest")
                     }
                 }
